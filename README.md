@@ -6,6 +6,10 @@ and home-absolute paths. For every token it also reports the byte range it
 occupied, so a caller can strip the raw token and splice resolved content in
 place.
 
+[![crates.io](https://img.shields.io/crates/v/mentions.svg)](https://crates.io/crates/mentions)
+[![docs.rs](https://docs.rs/mentions/badge.svg)](https://docs.rs/mentions)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 `@`-mentions are the convention many AI coding tools use to attach context to a
 prompt. This crate is the syntax layer only: it extracts and validates the
 tokens; resolving them against a filesystem and deciding what may be read stay
@@ -37,13 +41,13 @@ assert_eq!(strip_mentions(prompt), "Review  and the  folder.");
 Run it directly:
 
 ```console
-$ cargo run --example basic
+cargo run --example basic
 ```
 
 ## Syntax
 
 | Token | Meaning |
-|---|---|
+| --- | --- |
 | `@path/to/file` | a file |
 | `@path/to/dir/` | a directory (trailing slash) |
 | `@path/to/file:LINE` | a single line (`LINE >= 1`) |
@@ -76,7 +80,7 @@ this crate.
 ## API
 
 | Item | Purpose |
-|---|---|
+| --- | --- |
 | `parse(&str) -> Vec<(Range<usize>, Mention)>` | mentions plus the byte range each occupied |
 | `parse_mentions(&str) -> Vec<Mention>` | mentions only |
 | `strip_mentions(&str) -> String` | text with every mention token removed |
