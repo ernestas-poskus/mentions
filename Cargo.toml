@@ -1,0 +1,18 @@
+[package]
+name = "mentions"
+version = "0.1.0"
+edition = "2021"
+# Floor comes from validator 0.21 (1.88); winnow needs 1.65 and serde 1.56.
+rust-version = "1.88"
+description = "Parse and validate @-mention references (files, directories, line ranges, globs) in text."
+authors = ["Ernestas Poskus"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/ernestas-poskus/operator"
+keywords = ["mentions", "parser", "winnow", "text-processing"]
+categories = ["parser-implementations", "text-processing"]
+
+[dependencies]
+winnow = "1.0"
+validator = { version = "0.21", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
